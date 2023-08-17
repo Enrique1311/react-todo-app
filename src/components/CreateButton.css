@@ -1,0 +1,23 @@
+.button {
+	background-color: rgb(5, 202, 5);
+	width: 4rem;
+	height: 4rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: none;
+	color: white;
+	font-size: 2rem;
+	font-weight: bold;
+	border-radius: 50%;
+	position: fixed;
+	cursor: pointer;
+	right: 2rem;
+	bottom: 2rem;
+	box-shadow: 0 0 1rem 0 rgb(7, 137, 25);
+	transform: rotate(0);
+	transition: 0.5s ease;
+}
+.button:hover {
+	transform: rotate(135deg) scale(1.2);
+}

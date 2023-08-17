@@ -1,0 +1,29 @@
+.search-container {
+	width: 100%;
+	padding: 1rem 3rem;
+	z-index: 10;
+	position: relative;
+	top: -1rem;
+}
+.searcher {
+	box-sizing: border-box;
+	width: 100%;
+	background-color: rgb(150, 149, 149);
+	padding: 1rem;
+	border-radius: 1rem;
+	box-shadow: 0 0 1rem 0 grey;
+}
+input {
+	box-sizing: border-box;
+	border: none;
+	width: 100%;
+	border-radius: 0.2rem;
+	padding: 0.6rem 1rem;
+	font-size: 1.3rem;
+}
+input::placeholder {
+	color: rgb(169, 168, 168);
+}
+input:focus {
+	outline-color: rgb(14, 198, 14);
+}
