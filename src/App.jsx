@@ -6,16 +6,29 @@ import TodoItem from "./components/TodoItem";
 import TodoList from "./components/TodoList";
 import { useState } from "react";
 
-const defaulTasks = [
-	{ text: "nfnmbnmbmb", completed: true },
-	{ text: "mhjgkgk", completed: false },
-	{ text: "jklkljlkjklj", completed: true },
-	{ text: "kjkjljkjll", completed: true },
-	{ text: "kjkjl", completed: false },
-];
+// const defaultTasks = [
+// 	{ text: "nfnmbnmbmb", completed: true },
+// 	{ text: "mhjgkgk", completed: false },
+// 	{ text: "jklkljlkjklj", completed: true },
+// 	{ text: "kjkjljkjll", completed: true },
+// 	{ text: "kjkjl", completed: false },
+// ];
+
+// localStorage.setItem("tasks_1", JSON.stringify(defaultTasks));
 
 function App() {
-	const [tasks, setTasks] = useState(defaulTasks);
+	const localStorageTasks = localStorage.getItem("tasks_1");
+
+	let parsedTasks;
+
+	if (!localStorageTasks) {
+		localStorage.setItem("tasks_1", JSON.stringify([]));
+		parsedTasks = [];
+	} else {
+		parsedTasks = JSON.parse(localStorageTasks);
+	}
+
+	const [tasks, setTasks] = useState(parsedTasks);
 	const [taskSearch, setTaskSearch] = useState("");
 
 	const completedTasks = tasks.filter((task) => !!task.completed).length;
@@ -25,11 +38,16 @@ function App() {
 		task.text.toLowerCase().includes(taskSearch.toLowerCase())
 	);
 
+	const saveTasks = (newTasks) => {
+		localStorage.setItem("tasks_1", JSON.stringify(newTasks));
+		saveTasks(newTasks);
+	};
+
 	const compTask = (text) => {
 		const newTasks = [...tasks];
 		const taskIndex = newTasks.findIndex((task) => task.text == text);
 		newTasks[taskIndex].completed = true;
-		setTasks(newTasks);
+		saveTasks(newTasks);
 	};
 
 	const deleteTask = (text) => {
