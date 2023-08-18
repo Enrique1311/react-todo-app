@@ -8,16 +8,16 @@
 .searcher {
 	box-sizing: border-box;
 	width: 100%;
-	background-color: rgb(150, 149, 149);
+	background-color: rgb(139, 193, 131);
 	padding: 1rem;
-	border-radius: 1rem;
+	border-radius: 0.6rem;
 	box-shadow: 0 0 1rem 0 grey;
 }
 input {
 	box-sizing: border-box;
 	border: none;
 	width: 100%;
-	border-radius: 0.2rem;
+	border-radius: 0.6rem;
 	padding: 0.6rem 1rem;
 	font-size: 1.3rem;
 }

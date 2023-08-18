@@ -2,12 +2,12 @@
 	z-index: 20;
 	position: fixed;
 	top: 0;
-	width: 100%;
+	margin: 1rem;
+	width: calc(100% - 2rem);
 	height: 7rem;
 	color: rgb(84, 83, 83);
 	background-color: rgb(168, 249, 191);
-	border-bottom-left-radius: 2rem;
-	border-bottom-right-radius: 2rem;
+	border-radius: 1rem;
 	box-shadow: 0 0 1rem 0 grey;
 }
 h1 {

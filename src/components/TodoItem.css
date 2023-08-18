@@ -12,6 +12,7 @@ p {
 	width: 100%;
 	padding: 0 1rem;
 	font-size: 1.4rem;
+	font-weight: bolder;
 	color: rgb(31, 31, 31);
 }
 span {
@@ -26,11 +27,12 @@ span {
 	transform: scale(1.3);
 }
 .delete-icon {
-	color: rgb(201, 4, 4);
+	color: rgb(31, 31, 31);
 	font-size: 2.1rem;
 	transition: 0.3s ease;
 }
 .delete-icon:hover {
+	color: rgb(201, 4, 4);
 	transform: scale(1.3);
 }
 .check-icon--active {
@@ -38,5 +40,7 @@ span {
 }
 .item--completed {
 	text-decoration: line-through;
-	color: grey;
+	text-decoration-color: black;
+	color: rgb(130, 130, 130);
+	font-weight: normal;
 }
