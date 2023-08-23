@@ -1,0 +1,7 @@
+.empty {
+	background-color: rgb(220, 219, 219);
+	width: 100%;
+	padding: 50px;
+	text-align: center;
+	border-radius: 1rem;
+}

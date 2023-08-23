@@ -1,10 +1,13 @@
-import "./App.css";
 import TodoCounter from "./components/TodoCounter";
 import TodoSearch from "./components/TodoSearch";
 import CreateButton from "./components/CreateButton";
 import TodoItem from "./components/TodoItem";
 import TodoList from "./components/TodoList";
 import { useState } from "react";
+import { useLocalStorage } from "./customHooks/useLocalStorage";
+import TodoLoading from "./components/TodoLoading";
+import TodosError from "./components/TodosError";
+import EmptyTodo from "./components/EmptyTodo";
 
 // const defaultTasks = [
 // 	{ text: "nfnmbnmbmb", completed: true },
@@ -17,18 +20,12 @@ import { useState } from "react";
 // localStorage.setItem("tasks_1", JSON.stringify(defaultTasks));
 
 function App() {
-	const localStorageTasks = localStorage.getItem("tasks_1");
-
-	let parsedTasks;
-
-	if (!localStorageTasks) {
-		localStorage.setItem("tasks_1", JSON.stringify([]));
-		parsedTasks = [];
-	} else {
-		parsedTasks = JSON.parse(localStorageTasks);
-	}
-
-	const [tasks, setTasks] = useState(parsedTasks);
+	const {
+		item: tasks,
+		saveItem: saveTasks,
+		loading,
+		error,
+	} = useLocalStorage("TASKS_1", []);
 	const [taskSearch, setTaskSearch] = useState("");
 
 	const completedTasks = tasks.filter((task) => !!task.completed).length;
@@ -37,11 +34,6 @@ function App() {
 	const searchedTasks = tasks.filter((task) =>
 		task.text.toLowerCase().includes(taskSearch.toLowerCase())
 	);
-
-	const saveTasks = (newTasks) => {
-		localStorage.setItem("tasks_1", JSON.stringify(newTasks));
-		saveTasks(newTasks);
-	};
 
 	const compTask = (text) => {
 		const newTasks = [...tasks];
@@ -54,7 +46,7 @@ function App() {
 		const newTasks = [...tasks];
 		const taskIndex = newTasks.findIndex((task) => task.text == text);
 		newTasks.splice(taskIndex, 1);
-		setTasks(newTasks);
+		saveTasks(newTasks);
 	};
 
 	return (
@@ -70,6 +62,9 @@ function App() {
 			</TodoCounter>
 
 			<TodoList>
+				{loading && <TodoLoading />}
+				{error && <TodosError />}
+				{!loading && searchedTasks.length === 0 && <EmptyTodo />}
 				{searchedTasks.map((task) => (
 					<TodoItem
 						text={task.text}
