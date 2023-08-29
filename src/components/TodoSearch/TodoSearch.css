@@ -1,21 +1,12 @@
-.search-container {
-	width: 100%;
-	padding: 1rem 3rem;
-	z-index: 10;
-	position: relative;
-	top: -1rem;
-}
 .searcher {
 	box-sizing: border-box;
 	width: 100%;
-	background-color: rgb(139, 193, 131);
 	padding: 1rem;
-	border-radius: 0.6rem;
-	box-shadow: 0 0 1rem 0 grey;
+	position: relative;
 }
 input {
 	box-sizing: border-box;
-	border: none;
+	border: 2px solid gray;
 	width: 100%;
 	border-radius: 0.6rem;
 	padding: 0.6rem 1rem;
@@ -25,5 +16,5 @@ input::placeholder {
 	color: rgb(169, 168, 168);
 }
 input:focus {
-	outline-color: rgb(14, 198, 14);
+	outline-color: rgb(7, 137, 25);
 }

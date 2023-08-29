@@ -1,18 +1,15 @@
 .counter-container {
-	z-index: 20;
 	position: fixed;
 	top: 0;
 	margin: 1rem;
+	padding: 1rem;
 	width: calc(100% - 2rem);
-	height: 7rem;
-	color: rgb(84, 83, 83);
-	background-color: rgb(168, 249, 191);
+	color: rgb(7, 137, 25);
 	border-radius: 1rem;
 	box-shadow: 0 0 1rem 0 grey;
 }
 h1 {
 	font-size: 2rem;
-	padding: 1rem;
 	text-align: center;
 }
 span {

@@ -17,6 +17,7 @@
 	box-shadow: 0 0 1rem 0 rgb(7, 137, 25);
 	transform: rotate(0);
 	transition: 0.5s ease;
+	z-index: 20;
 }
 .button:hover {
 	transform: rotate(135deg) scale(1.2);

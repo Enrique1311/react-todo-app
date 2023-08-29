@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./TodoItem.css";
 import { FaCheck } from "react-icons/fa";
 import { MdDeleteForever } from "react-icons/md";
+import { TodoContext } from "../TodoContext";
 
-const TodoItem = ({ text, completed, onComplete, onDelete }) => {
+const TodoItem = ({ text, onComplete, onDelete, completed }) => {
 	return (
 		<div className="item-container">
 			<span

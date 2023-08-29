@@ -1,18 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./TodoSearch.css";
+import { TodoContext } from "../TodoContext";
 
-const TodoSearch = ({ taskSearch, setTaskSearch }) => {
+const TodoSearch = () => {
+	const { taskSearch, setTaskSearch } = useContext(TodoContext);
+
 	return (
-		<div className="search-container">
-			<div className="searcher">
-				{" "}
-				<input
-					type="text"
-					placeholder="Escribe una tarea"
-					value={taskSearch}
-					onChange={(event) => setTaskSearch(event.target.value)}
-				/>
-			</div>
+		<div className="searcher">
+			{" "}
+			<input
+				type="text"
+				placeholder="Escribe una tarea"
+				value={taskSearch}
+				onChange={(event) => setTaskSearch(event.target.value)}
+			/>
 		</div>
 	);
 };
